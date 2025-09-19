@@ -1,0 +1,16 @@
+version: 1
+frontend:
+    phases:
+        preBuild:
+            commands:
+                - 'npm ci --cache .npm --prefer-offline'
+        build:
+            commands:
+                - 'npm run build -- --configuration=production'
+    artifacts:
+        baseDirectory: dist/angularDummyAppOne/browser
+        files:
+            - '**/*'
+    cache:
+        paths:
+            - '.npm/**/*'
